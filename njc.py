@@ -21,6 +21,7 @@ import json
 import sys
 import argparse
 import errno
+import gzip
 
 try:
 
@@ -37,7 +38,10 @@ try:
 	if args.filename == "-":
 		file = sys.stdin
 	else:
-		file = open(args.filename)
+		if args.filename[-3:] == '.gz':
+			file = gzip.open(args.filename)
+		else:
+			file = open(args.filename)
 
 	if args.output == "-" or args.output == None:
 		output = sys.stdout
