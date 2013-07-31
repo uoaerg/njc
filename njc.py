@@ -57,7 +57,7 @@ try:
 
     try:
 
-    # Get the headers
+        # Get the headers
 
         if not args.noheaders:
             c = u'"Timestamp",'
